@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:300&display=swap');
+
+:root{
+    --bar-color: #ebebeb;
+}
+
+* {
+    box-sizing: border-box;
+    font-family:'Muli', sans-serif;
+    
+}
+body{
+    padding: 0;
+    overflow-x: hidden;
+    min-width:250px;
+}
+.container{
+    overflow-x: hidden;
+}
+/* -------------------SEARCH BAR--------------------- */
+.search-box{
+    position: relative;
+    transform: translateX(0);
+}
+.search-box .search-input{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #bdbcb9;
+    padding: 0 15px 0 5px;
+    font-size: 18px;
+    height: 5vh;
+    min-height: 35px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    outline: none;
+}
+.search-box .auto-complete-box{
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: 5vh;
+    overflow-y: auto;
+    z-index: 10;
+    background-color: #fff;
+    
+    display: none;
+}
+.auto-complete-box.active {
+    display: block;
+}
+.search-box li{
+    list-style-type: none;
+    padding: 8px 12px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 3px;
+    display: block;
+    margin-right: 1vw ;
+    width: 100%;
+    
+}
+.search-box li:hover{
+    background: #efefef;
+    
+}
+
+
+.search-box .icon{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    
+}
+.search-box li.no-result:hover{
+    background: #fff;
+}
+
+
+/* FIRST BAR------------------------------------------- */
+.first-bar {
+    background-color: var(--bar-color);
+    font-weight: 800;
+    padding: 10px 0 10px 10px;
+}
+.nav-bar{
+    display: flex;
+    overflow-x: scroll;
+    margin: 20px 0 20px 0;
+    
+    
+}
+.nav-bar::-webkit-scrollbar{
+    display: none;
+}
+.nav-bar__item{
+    width:30vw;
+    border: 3px solid var(--bar-color);
+    border-radius: 10px;
+    padding: 0 0 10px 8px;
+    flex-shrink: 0;
+    
+}
+.nav-bar__item:not(:nth-of-type(1)) {
+    margin-left: 5vw;
+}
+.nav-bar__item img{
+    width: 100%;
+}
+.nav-item__name{
+    font-weight: 900;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+  
+   
+}
+.nav-item__author{
+    font-size: 90%;
+    margin-top: 20px;
+}
+.second-bar {
+    background-color: var(--bar-color);
+    font-weight: 800;
+    padding: 10px 0 10px 10px;
+
+}
+.main-books{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-books__item{
+    display: flex;
+    padding: 5px 5px 5px 5px;
+    width: 90vw;
+    border: 3px solid var(--bar-color);
+    border-radius: 20px;
+    margin-left: -20px;
+    margin-top: 10px;
+    position: relative;
+    height: 25vh;
+    min-height: 180px;
+
+}
+.main-left{
+    width: 30%;
+    object-fit: contain;
+    margin: 0 10px ;
+}
+.main-item__right{
+    display: flex;
+    flex-direction: column;
+}
+
+.item-right-top h2{
+    font-size: 1rem;
+    font-weight: 1000;
+    word-break: keep-all;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    max-height: 40px;
+}
+.item-right-top i{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.item-right-middle{
+    font-size: 0.7rem;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+   -webkit-box-orient: vertical;
+   margin-top: -5px;
+   position: relative;
+   
+      
+}
+
+
+.item-right-bottom{
+    align-self: flex-end;
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+}
+/* ----------------READ PAGE--------------------- */
+.read-page{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    top:0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out ;
+    z-index: 1000;
+    
+}
+.read-page .backButton{
+    position: absolute;
+    top:10px;
+    left:20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.read-page.visible{
+    transform: translateX(0);
+}
+.read-page img {
+    margin-top: 15vh;
+    width: 25%;
+    max-width: 150px;
+}
+.read-page .book_name {
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-align: center;
+}
+.read-page .book_author {
+    font-size: 1rem;
+    width: 75%;
+
+    text-align: center;
+    margin-top: 15px;
+    max-width: 300px;
+
+}
+.read-page .book_publisher {
+    font-size: 1rem;
+    margin-top: 17px;
+    width: 40%;
+    word-break: keep-all;
+    text-align: center;
+    max-width: 300px;
+}
+.read-page .book_description {
+    font-size: 0.8rem;
+    padding:0px 20px;
+    text-align: center;
+    margin-top: 15px;
+    width: 905;
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+button.readNow{
+    background: #117ef2;
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 10px 20vw;
+    border-radius: 20px;
+    border:none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5vh;
+    
+
+}
+.read-page .readLink {
+    display: flex;
+    justify-content: center;
+}
+.clickToRead{
+    cursor: pointer;
+}
